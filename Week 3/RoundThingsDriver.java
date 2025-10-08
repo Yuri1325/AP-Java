@@ -1,19 +1,19 @@
-import java.util.*;
+import java.util.*; // import scanner
 
 public class RoundThingsDriver {
-  public static void main(String[]args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Radius?: ");
-        double radius = input.nextDouble();
-        double circleArea = RoundThing.calcAreaCircle(radius);
-        double circleCircum = RoundThing.calcCircumCircle(radius);
-        double sphereArea = RoundThing.calcAreaSphere(radius);
-        double sphereVolume = RoundThing.calcVolumeSphere(radius);
+  public static void main(String[]args) { //Main runable method 
+        Scanner input = new Scanner(System.in); //Create scanner object
+        System.out.println("Radius?: ");// Ask for radius
+        double radius = input.nextDouble();// get radius
+        double circleArea = RoundThing.calcAreaCircle(radius);// calc Area
+        double circleCircum = RoundThing.calcCircumCircle(radius); // calc Circumference
+        double sphereArea = RoundThing.calcAreaSphere(radius); //cal sphere Area
+        double sphereVolume = RoundThing.calcVolumeSphere(radius); //calc spher Volume
 
         outPut(radius, circleArea, circleCircum, sphereArea, sphereVolume);
   }  
-  public static void outPut(double r,double cA,double cC,double sA,double sV){
-      System.out.println("The area of a circle with the radius of "+r+" is "+cA);
+  public static void outPut(double r,double cA,double cC,double sA,double sV){ // takes all these args
+      System.out.println("The area of a circle with the radius of "+r+" is "+cA); // Prints with values
 
       System.out.println("The circumfrence of a circle with the radius of "+r+" is "+cC);
 
@@ -24,12 +24,10 @@ public class RoundThingsDriver {
 }
 
 
-class RoundThing{
+class RoundThing{ //Round things class
     
-    public RoundThing(){
-
-    }
-
+   
+  //Methods acording to google 
     public static double calcAreaCircle(double radius){
         return Math.PI*Math.pow(radius, 2);
     }
