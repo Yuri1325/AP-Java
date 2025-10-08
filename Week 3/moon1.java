@@ -7,3 +7,4 @@ class moon1{
         System.out.println(timeToReachMoon/3600);
     }
 };
+    
