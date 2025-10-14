@@ -28,17 +28,17 @@ class RoundThing{ //Round things class
     
    
   //Methods acording to google 
-    public static double calcAreaCircle(double radius){
-        return Math.PI*Math.pow(radius, 2);
-    }
+   public static double calcAreaCircle(double radius) {
+    return Math.PI * Math.pow(radius, 2); // Correct
+}
 
-    public static double calcCircumCircle(double radius){
-        return 2*Math.PI*radius;
-    }
+public static double calcCircumCircle(double radius) {
+    return 2 * Math.PI * radius; // Correct
+}
 
-    public  static double calcAreaSphere(double radius){
-        return 4*Math.PI*Math.pow(radius, 2);
-    }
+public static double calcAreaSphere(double radius) {
+    return 4 * Math.PI * Math.pow(radius, 2); // Correct
+}
 
     public static double calcVolumeSphere(double radius){
         return (4.0 / 3) * Math.PI * Math.pow(radius, 3);
