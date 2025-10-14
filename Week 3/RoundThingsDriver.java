@@ -41,6 +41,6 @@ class RoundThing{ //Round things class
     }
 
     public static double calcVolumeSphere(double radius){
-        return (4/3)*Math.PI*Math.pow(radius, 3);
+        return (4.0 / 3) * Math.PI * Math.pow(radius, 3);
     }
 }
