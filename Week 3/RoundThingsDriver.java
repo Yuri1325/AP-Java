@@ -5,6 +5,7 @@ public class RoundThingsDriver {
         Scanner input = new Scanner(System.in);
         System.out.println("Radius?: ");
         double radius = input.nextDouble();
+        input.close();
         double circleArea = RoundThing.calcAreaCircle(radius);
         double circleCircum = RoundThing.calcCircumCircle(radius);
         double sphereArea = RoundThing.calcAreaSphere(radius);
