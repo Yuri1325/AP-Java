@@ -29,8 +29,9 @@ public static void main(String[] args) {
 public static int findNumberOfFactors(int x){
     int i = 1;
     int num=0;
-    while (i<=9){
-        if(i*(x/i)==x){
+    while (i<=x){
+        if(x%i==0){
+            
            num++;
         }
         i++;
@@ -40,7 +41,7 @@ public static int findNumberOfFactors(int x){
 //Program 1
 
 public static boolean isPrime(int x){
-    if (findNumberOfFactors(x)==1)
+    if (findNumberOfFactors(x)==2)
         return true ;
     else 
         return false;
@@ -51,7 +52,7 @@ public static boolean isPrime(int x){
 public static int numOfPrimes(int x){
     int i = 2;
     int num = 0;
-    while (i<x){
+    while (i<=x){
         if(isPrime(i))
             num++;
 
