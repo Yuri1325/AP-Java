@@ -4,7 +4,7 @@ public class main{
 
 public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
-    System.out.println("Enter 1 for Program - Enter 2  for Program: ");
+    System.out.println("Enter 1 for Program 1- Enter 2  for Program 2: ");
     int program = input.nextInt();
     System.out.println("Enter your number: "); 
     int num = input.nextInt();
