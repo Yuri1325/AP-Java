@@ -11,7 +11,10 @@ public class TextAdventure
   boolean couchMoved;
   boolean hatchOpen;
   boolean keyTaken;
-
+  boolean fridgeOpen;
+  boolean tongsTaken;
+  boolean screwDriverTaken;
+  
   public TextAdventure()
   {
     console = new FancyConsole("Great Text Adventure!", 1000, 1000);
@@ -24,6 +27,11 @@ public class TextAdventure
     cuttersTaken = false;
     couchMoved = false;
     hatchOpen = false;
+    fridgeOpen = false;
+    tongsTaken = false;
+    screwDriverTaken = false;
+  
+    
     
   }
 
@@ -38,7 +46,7 @@ public class TextAdventure
     setZone_Mattress();
     
     // Change player's name
-    // ADD CODE HERE
+    // ADD CODE HERE;
     
     // describe the starting situation. Feel free to change this
 
@@ -48,7 +56,7 @@ public class TextAdventure
   }
 
   private void print(String x){
-      System.out.println("  "+x+"\n ->");
+      System.out.println("  "+x+"\n ");
   }
   private void setZone_Mattress(){
     int input;
@@ -59,6 +67,7 @@ public class TextAdventure
         print("0-Approach vent | 1-Turn around | 2-Inspect matress");
         input = inScanner.nextInt();
         
+        
       }else{
         print("0-Approach vent | 1-Turn around | 2-Inspect matress");
         input = inScanner.nextInt();
@@ -68,11 +77,16 @@ public class TextAdventure
           setZone_Vent();
         else if(input==1)
           setZone_Wide_View();
-        else if(input==2)
+        else if(input==2){
           print("You inspect the mattress you woke up from. It’s filthy and littered with stains and tears");
           setZone_Mattress();
+        }else{
+          setZone_Mattress();
+          
+        }
   }
   
+
   private void setZone_Vent(){
     int input;
     if(ventOpen){
@@ -82,7 +96,7 @@ public class TextAdventure
         print("0-Go back");
         input =  inScanner.nextInt();
       }else{
-        console.setImage("images/inideVentW.png");
+        console.setImage("images/insideVentW.png");
         print("0-Go back | 1-Take bolt cutters ");
         input = inScanner.nextInt();
       }
@@ -111,6 +125,8 @@ public class TextAdventure
         ventOpen = true;
         print("With the screwdriver you remove the vent from the wall, where you find a pair of bolt cutters. ");
         setZone_Vent();
+    }else{
+      setZone_Vent();
     }
       
   }
@@ -129,6 +145,8 @@ public class TextAdventure
         setZone_Couch();
       }else if(input==3){
         setZone_Kitchen();
+      }else{
+        setZone_Wide_View();
       }
     }
     private void setZone_Door(){
@@ -156,7 +174,9 @@ public class TextAdventure
         couchMoved = false;
         setZone_Door();
       }else if(input==2&&player.invetory.contains("key")){
-        gameEnd();
+        goodEnding();
+      }else{
+        setZone_Door();
       }
     }
     private void setZone_Couch(){
@@ -165,11 +185,11 @@ public class TextAdventure
         
         if(hatchOpen){
           if(keyTaken){
-            console.setImage("images/insideHatchW.png");
+            console.setImage("images/insideHatch.png");
             print("0-Go back");
             input = inScanner.nextInt();
           }else{
-            console.setImage("images/insideHatch.png");
+            console.setImage("images/insideHatchW.png");
             print("0-Go back | 1-Take key");
             input = inScanner.nextInt();
           }
@@ -189,7 +209,7 @@ public class TextAdventure
       }else{
       console.setImage("images/couch.png");
       //print("You inspect the couch. Like the mattress its filthy and littered with stains and tears.\n You see scuff marks on the floor like it has been moved alot");
-      print("0-Go back | 3-Search between the cushions");
+      print("0-Go back | 3-Search between the cushions | 4-Move couch");
       input = inScanner.nextInt();
 
     }
@@ -208,6 +228,12 @@ public class TextAdventure
       }else if(input==3){
         print("You stick your hand between the cushions - theres nothing there but dirt and crumbs");
         setZone_Couch();
+      }else if(input==4&&!couchMoved){
+        print("You push the couch to the left and discover the hatch located below it ");
+        couchMoved = true;
+        setZone_Couch();
+      }else{
+        setZone_Couch();
       }
     }
     private void setZone_Kitchen(){
@@ -221,18 +247,77 @@ public class TextAdventure
         setZone_Fridge();
       }else if (input==2){
         setZone_Sink();
+      }else{
+        setZone_Kitchen();
       }
 
   }
     private void setZone_Fridge(){
-      console.setImage("images/fridge.png");
+      int input;
+      if (fridgeOpen){
+        console .setImage("images/infrdg.png");
+        if(tongsTaken){
+          print("The fridge is filled with junk and stinks");
+          print("0-Go back");
+          input = inScanner.nextInt();
+        }else{
+          print("You look in the fridge and behind all the junk you see a pair of grill tongs");
+          print("0-Go back | 2-Take tongs");
+          input = inScanner.nextInt();
+        }
+      }else{
+        console.setImage("images/fridge.png");
+        print("0-Go back | 1-Open fridge");
+        input = inScanner.nextInt();
+      }
+      if(input==0){
+        setZone_Kitchen();
+      }else if(input==1&&!fridgeOpen){
+        fridgeOpen = true;
+        print("You open the fridge");
+        setZone_Fridge();
+      }else if(input==2&&fridgeOpen&&!tongsTaken){
+        player.invetory.add("tongs");
+        tongsTaken = true;
+        fridgeOpen = false;
+        setZone_Fridge();
+      }else{
+        setZone_Fridge();
+      }
     }
     private void setZone_Sink(){
+      int input;
       console.setImage("images/sink.png");
+      if(player.invetory.contains("tongs")&&!screwDriverTaken){
+        print("0-Go back |1-Reach into the sink drain | 2-Use tongs");
+        input = inScanner.nextInt();
+      }else{
+        print("0-Go back |1-Reach into the sink drain");
+        input = inScanner.nextInt();
+      }
+      if(input==0){
+        setZone_Kitchen();
+      }else if (input==1){
+        
+          print("You reach your hand in the sink , its disgusting and gooey .You feel something hard but you cant quite grasp it.");
+        
+        setZone_Sink();
+      }else if(input==2&&player.invetory.contains("tongs")&&!screwDriverTaken){
+        print("You insert the tongs into the drain and grap what appears to be a screwdriver - You take it.");
+        player.invetory.add("screwdriver");
+        screwDriverTaken = true;
+        setZone_Sink();
+
+
+      }else{
+        setZone_Sink();
+      }
     }
-  private void gameEnd()
+  private void goodEnding()
   {
-    // ADD CODE HERE
+    console.setImage("images/outside.png");
+    print("YOU SURVIVED. YIPPEE");
+    print("But....this isn't the end you still have to find your way home in part 2 (NEXT PROJECT)");
 
     inScanner.close();
   }

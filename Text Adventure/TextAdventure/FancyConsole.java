@@ -1,8 +1,8 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.*;
+import javax.swing.*;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 
@@ -50,7 +50,7 @@ public class FancyConsole extends JFrame
       taOut = new JTextArea(20, 40);
       scrollPane = new JScrollPane(taOut);
       panel.add(scrollPane, BorderLayout.CENTER);
-
+      
       consoleImage = new JLabel();
 
       panel.add(consoleImage, BorderLayout.NORTH);
