@@ -65,12 +65,12 @@ public class TextAdventure
         wake = false;
         print("You wake up feeling disoriented with a pounding headache. You appear to be in a cabin of some sort yet you have no memory of how you got here.\n The air in the room is thin and it is becoming increasingly difficult to breathe. You know you have a limited amount of time before you suffocate");
         print("0-Approach vent | 1-Turn around | 2-Inspect matress");
-        input = inScanner.nextInt();
+        input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
         
         
       }else{
         print("0-Approach vent | 1-Turn around | 2-Inspect matress");
-        input = inScanner.nextInt();
+        input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
         
       }
       if (input==0)
@@ -98,19 +98,19 @@ public class TextAdventure
       }else{
         console.setImage("images/insideVentW.png");
         print("0-Go back | 1-Take bolt cutters ");
-        input = inScanner.nextInt();
+        input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
       }
     }else{
       if (player.invetory.contains("screwdriver")){
         console.setImage("images/vent.png");
         print("The vent is screwed onto the wall maybe you can remove it with a screwdriver");
         print("0-Go back | 2-Open Vent");
-        input = inScanner.nextInt();
+        input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
       }else{
         console.setImage("images/vent.png");
         print("The vent is screwed onto the wall maybe you can remove it with a screwdriver");
         print("0-Go back  ");
-        input = inScanner.nextInt();
+        input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
       }
       
     }
@@ -134,9 +134,13 @@ public class TextAdventure
 
   private void setZone_Wide_View(){
       int input;
+      if(couchMoved){
+        console.setImage("images/rcm.png");
+      }else{
       console.setImage("images/room.png");
+      }
       print("0-Go to matress | 1-Go to the door | 2-Go to the couch | 3-Go to the kithcen" );
-      input = inScanner.nextInt();
+      input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
       if(input ==0){
         setZone_Mattress();
       }else if (input==1){
@@ -161,11 +165,13 @@ public class TextAdventure
         if(player.invetory.contains("key")){
           print("You approach the door*, it appear to be locked from the outside with the key hole facing you *");
           print("0-Go back | 2-Open door");
-          input = inScanner.nextInt();
+          input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
         }else{
           print("You approach the door*, it appear to be locked from the outside with the key hole facing you *");
           print("0-Go back");
-          input = inScanner.nextInt();
+          input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
+
+          
         }
       }
       if (input==0){
@@ -187,21 +193,21 @@ public class TextAdventure
           if(keyTaken){
             console.setImage("images/insideHatch.png");
             print("0-Go back");
-            input = inScanner.nextInt();
+            input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
           }else{
             console.setImage("images/insideHatchW.png");
             print("0-Go back | 1-Take key");
-            input = inScanner.nextInt();
+            input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
           }
         }else{
           console.setImage("images/hatch.png");
           if(player.invetory.contains("cutters")){
             print("0-Go back | 2-Open hatch");
-            input = inScanner.nextInt();
+            input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
           }else{
             print("You inspect the hatch, it has a chain keeping it locked");
             print("0-Go back");
-            input = inScanner.nextInt();
+            input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
           }
 
         }
@@ -210,7 +216,7 @@ public class TextAdventure
       console.setImage("images/couch.png");
       //print("You inspect the couch. Like the mattress its filthy and littered with stains and tears.\n You see scuff marks on the floor like it has been moved alot");
       print("0-Go back | 3-Search between the cushions | 4-Move couch");
-      input = inScanner.nextInt();
+      input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
 
     }
       if (input==0){
@@ -240,7 +246,7 @@ public class TextAdventure
       int input;
       console.setImage("images/kitchen.png");
       print("0-Go back | 1-Go to fridge | 2-Go to sink");
-      input = inScanner.nextInt();
+      input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
       if(input==0){
         setZone_Wide_View();
       }else if(input==1){
@@ -259,16 +265,16 @@ public class TextAdventure
         if(tongsTaken){
           print("The fridge is filled with junk and stinks");
           print("0-Go back");
-          input = inScanner.nextInt();
+          input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
         }else{
           print("You look in the fridge and behind all the junk you see a pair of grill tongs");
           print("0-Go back | 2-Take tongs");
-          input = inScanner.nextInt();
+          input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
         }
       }else{
         console.setImage("images/fridge.png");
         print("0-Go back | 1-Open fridge");
-        input = inScanner.nextInt();
+        input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
       }
       if(input==0){
         setZone_Kitchen();
@@ -290,10 +296,10 @@ public class TextAdventure
       console.setImage("images/sink.png");
       if(player.invetory.contains("tongs")&&!screwDriverTaken){
         print("0-Go back |1-Reach into the sink drain | 2-Use tongs");
-        input = inScanner.nextInt();
+        input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
       }else{
         print("0-Go back |1-Reach into the sink drain");
-        input = inScanner.nextInt();
+        input = Integer.parseInt(inScanner.next().replaceAll("\\D", ""));
       }
       if(input==0){
         setZone_Kitchen();
