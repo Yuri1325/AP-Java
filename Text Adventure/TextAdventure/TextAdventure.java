@@ -321,10 +321,10 @@ public class TextAdventure
     }
   private void goodEnding()
   {
-    console.setImage("images/outside.png");
+    console.setImage("images/outside.jpg");
     print("YOU SURVIVED. YIPPEE");
     print("But....this isn't the end you still have to find your way home in part 2 (NEXT PROJECT)");
-
+    
     inScanner.close();
   }
 }
