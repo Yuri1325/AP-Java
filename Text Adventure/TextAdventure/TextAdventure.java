@@ -46,14 +46,36 @@ public class TextAdventure
     int randomSelector = ((int)(Math.random()*7));
     
     switch (randomSelector) {
-        case 0 -> setZone_Couch();
-        case 1 -> setZone_Door();
-        case 2 -> setZone_Fridge();
-        case 3 -> setZone_Kitchen();
-        case 4 -> setZone_Mattress();
-        case 5 -> setZone_Sink();
-        case 6 -> setZone_Vent();
-        case 7 -> setZone_Wide_View(); 
+      
+        case 0:
+            setZone_Couch();
+            break;
+        case 1:
+            setZone_Door();
+            break;
+        case 2:
+            setZone_Fridge();
+            break;
+        case 3:
+            setZone_Kitchen();
+            break;
+        case 4:
+            setZone_Mattress();
+            break;
+        case 5:
+            setZone_Sink();
+            break;
+        case 6:
+            setZone_Vent();
+            break;
+        case 7:
+            setZone_Wide_View();
+            break;
+        default:
+            // Optional: handle cases not covered above
+            break;
+    
+    
     }
   
     // Change player's name
@@ -113,7 +135,7 @@ public class TextAdventure
         console.setImage("images/insideVent.png");
         print("The vent is screwed onto the wall maybe you can remove it with a screwdriver");
         print("(0/Enter)-Go back");
-        input =  inScanner.nextInt();
+        input =  getInput();
       }else{
         console.setImage("images/insideVentW.png");
         print("(0/Enter)-Go back | 1-Take bolt cutters ");
@@ -133,9 +155,9 @@ public class TextAdventure
       }
       
     }
-    if(input==0)
+    if(input==0){
       setZone_Mattress();
-    else if (input==1&&ventOpen){
+    }else if (input==1&&ventOpen){
       print("You take the bolt cutters");
       cuttersTaken = true;
       player.invetory.add("cutters");
