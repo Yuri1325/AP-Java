@@ -4,7 +4,7 @@ public class Search {
         String kNames = "";
         for (String name : names) {
             if (name.substring(0, 1).equals("K"))
-                kNames += " " + name;
+                kNames += "," + name;
 
         }
         System.out.println(kNames);
