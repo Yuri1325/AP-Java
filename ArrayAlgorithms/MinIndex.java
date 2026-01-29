@@ -8,22 +8,10 @@ public class MinIndex {
         // min = nums[i];
         // indx = i;
         // }
-        // System.out.println(indx);
-        locateMinimum();
-
+        System.out.println(locateMinimum());
+        
     }
 
-    public static int locateMinimum() {
-
-        int[] nums = { -2, 0, 5, 7, 9 };
-        int min = Integer.MAX_VALUE;
-
-        for (int i = 0; i < nums.length; i++)
-            if (nums[i] < min)
-                min = i;
-
-        return min;
-
-    }
+    
 
 }
