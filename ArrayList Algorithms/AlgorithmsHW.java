@@ -49,4 +49,20 @@ public class AlgorithmsHW
                     if(list.get(i)<min){min = list.get(i);}
                 return min;
             }
+
+        public static boolean findDuplicates(ArrayList<Integer> list)
+            {
+                for(int i = 0;i<list.size();i++)
+                {
+                    for(int j = i+1;i<list.size();i++)
+                        if(list.get(i).equals(list.get(j))){return  true;}
+
+                }
+                return false;
+            }
+        public static void acessDuplicates(ArrayList<Integer> list)
+            {
+                //Instructions not specified.........
+            }
+
     }
