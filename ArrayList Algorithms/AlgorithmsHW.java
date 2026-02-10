@@ -13,7 +13,8 @@ public class AlgorithmsHW
             System.out.println("Average: "+ average(nums));
             System.out.println("Max: "+ max(nums));
             System.out.println("Min: "+ min(nums));
-
+            System.out.println("Has Dupes: "+findDuplicates(nums));
+            System.out.print("With 3's removed"+removeMe(nums));
 
 
 
@@ -60,9 +61,19 @@ public class AlgorithmsHW
                 }
                 return false;
             }
+
         public static void acessDuplicates(ArrayList<Integer> list)
             {
                 //Instructions not specified.........
             }
 
+        public static ArrayList<Integer> removeMe(ArrayList<Integer> list)
+            {
+                for (int i = 0; i<list.size();i++)
+                    {
+                        if(list.get(i).equals(3))
+                            list.remove(i);
+                    }
+                return  list;
+            }
     }
