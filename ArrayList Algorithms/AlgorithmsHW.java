@@ -14,7 +14,7 @@ public class AlgorithmsHW
             System.out.println("Max: "+ max(nums));
             System.out.println("Min: "+ min(nums));
             System.out.println("Has Dupes: "+findDuplicates(nums));
-            System.out.print("With 3's removed"+removeMe(nums));
+            System.out.print("With 3's removed: "+ removeMe(nums));
 
 
 
@@ -75,5 +75,17 @@ public class AlgorithmsHW
                             list.remove(i);
                     }
                 return  list;
+            }
+        public static ArrayList<Integer> removeDuplicates(ArrayList<Integer> list)
+            {
+                for(int i = 0;i<list.size();i++)
+                    {
+                        for(int j = list.size();j>i;j--)
+                        {
+                            if(list.get(i).equals(list.get(j)))
+                                list.remove(j);
+                        }
+                    }
+                return list;  
             }
     }
