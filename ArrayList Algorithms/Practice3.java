@@ -25,7 +25,12 @@ public class Practice3 {
         double avg = (double) sum / counter;
         return avg;
     }
-
+     /**
+      * 
+      * @param arr
+      * @return
+      * @
+      */
     public static int getNumDupelicateRows(String[][] arr)
         {
             for(int i = 0;i<arr.lenght;)
