@@ -1,5 +1,6 @@
 public class Main {
-    public static public static void main(String[] args) {
-
+    public static void main(String[] args) {
+        FrogSimulation frogSimulation = new FrogSimulation(24, 5);
+        System.out.print(frogSimulation.runSimulations(400));
     }
 }

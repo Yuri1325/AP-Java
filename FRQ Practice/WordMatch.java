@@ -1,4 +1,4 @@
-public class WordMatch {
+public class WordMatch implements Question {
 
     private String secret;
 
